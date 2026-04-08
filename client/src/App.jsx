@@ -18,9 +18,9 @@ function App() {
         <Route path="/details/:id" element={<Details />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="*" element={<NotFound />} />
-     <Route path='/'element={<FeaturedProduct/>}/>
+        <Route path='/' element={<FeaturedProduct />} />
       </Routes>
-      
+
       <Footer />
     </Router>
   );
