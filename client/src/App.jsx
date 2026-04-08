@@ -6,6 +6,7 @@ import Basket from './pages/Basket/Basket';
 import NotFound from './pages/NotFound/NotFound';
 import Navbar from './components/Layout/Navbar/Navbar';
 import Footer from './components/Layout/Footer/Footer';
+import FeaturedProduct from './pages/Home/FeaturedProduct';
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
         <Route path="/details/:id" element={<Details />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="*" element={<NotFound />} />
+     <Route path='/'element={<FeaturedProduct/>}/>
       </Routes>
+      
       <Footer />
     </Router>
   );
