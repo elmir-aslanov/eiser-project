@@ -3,6 +3,7 @@ import Features from "../../components/Layout/Footer/Features";
 // import Blog from "../../components/Layout/";
 import FeaturedProduct from "./FeaturedProduct";
 import "./home.css";
+import Offer from "./Offer";
 
 const Home = () => {
   return (
@@ -27,6 +28,7 @@ const Home = () => {
       <FeaturedProduct />
       <Features />
       {/* <Blog /> */}
+      <Offer />
     </>
   );
 };

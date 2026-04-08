@@ -1,0 +1,74 @@
+.offer-section {
+    background-color: #f6f6f6; /* Arxa fon rəngi */
+    padding: 80px 0;
+    overflow: hidden;
+    background-image: url("../../../assets/image/offer-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+  }
+  
+  .offer-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .offer-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .offer-content {
+    text-align: center;
+  }
+  
+  .offer-subtitle {
+    font-size: 18px;
+    color: #777;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+  }
+  
+  .offer-title {
+    font-size: 80px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 25px;
+  }
+  
+  .offer-btn {
+    background-color: #71cd14; /* Yaşıl rəng tonu */
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    text-transform: uppercase;
+    border-radius: 5px;
+  }
+  
+  .offer-btn:hover {
+    background-color: #5fb310;
+    box-shadow: 0px 10px 20px rgba(113, 205, 20, 0.3);
+  }
+  
+  .offer-timer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+    font-style: italic;
+  }
+  
+  /* Responsivlik üçün */
+  @media (max-width: 768px) {
+    .offer-wrapper {
+      flex-direction: column;
+    }
+    .offer-title {
+      font-size: 50px;
+    }
+  }
