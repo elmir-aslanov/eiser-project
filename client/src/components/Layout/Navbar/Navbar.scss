@@ -6,9 +6,31 @@ $transition: all 0.3s ease;
 
 .main-header {
   width: 100%;
-  position: relative;
+  position: absolute;
+  top: 0;
+  left: 0;
   z-index: 1000;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: $transition;
+
+  &.sticky {
+    position: fixed;
+    background: $white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    animation: slideDown 0.5s ease;
+
+    .navbar {
+      padding: 15px 0;
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
 
   .container {
     max-width: 1140px;
@@ -30,6 +52,11 @@ $transition: all 0.3s ease;
     padding: 10px 0;
     font-size: 12px;
     color: #777;
+    transition: $transition;
+
+    &.hidden {
+      display: none;
+    }
 
     .top-bar-left {
       display: flex;
@@ -54,14 +81,27 @@ $transition: all 0.3s ease;
 
   /* Main Navbar */
   .navbar {
-    background: $white;
-    padding: 20px 0;
+    background: transparent;
+    padding: 25px 0;
+    transition: $transition;
+
+    .main-header.sticky & {
+      background: $white;
+    }
 
     .logo {
       img {
         max-width: 150px;
         height: auto;
       }
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: $text-color;
     }
 
     .nav-links {
@@ -98,10 +138,10 @@ $transition: all 0.3s ease;
         border: none;
         cursor: pointer;
         color: $text-color;
-        margin-left: 20px;
+        margin-left: 15px;
+        padding: 5px;
         transition: $transition;
         position: relative;
-        padding: 5px;
         display: flex;
         align-items: center;
         text-decoration: none;
@@ -110,37 +150,62 @@ $transition: all 0.3s ease;
           color: $primary-color;
         }
 
-        &.cart-btn {
-          .badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: $primary-color;
-            color: $white;
-            font-size: 10px;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
+        .badge {
+          position: absolute;
+          top: -5px;
+          right: -5px;
+          background: $primary-color;
+          color: $white;
+          font-size: 10px;
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
   }
-}
 
-/* Responsive */
-@media (max-width: 991px) {
-  .main-header {
+  /* Responsive Design */
+  @media (max-width: 991px) {
     .top-bar {
       display: none;
     }
 
     .navbar {
+      padding: 15px 0;
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
       .nav-links {
-        display: none; /* In a real project, we'd add a mobile menu here */
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: $white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        padding: 20px 0;
+
+        &.mobile-active {
+          display: flex;
+        }
+
+        li {
+          margin: 10px 20px;
+          text-align: center;
+        }
+      }
+
+      .nav-icons {
+        .icon-btn {
+          margin-left: 10px;
+        }
       }
     }
   }

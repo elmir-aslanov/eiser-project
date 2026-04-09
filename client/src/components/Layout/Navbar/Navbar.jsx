@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Search, ShoppingCart, User, Heart } from 'lucide-react';
+import { FiSearch, FiUser, FiHeart, FiMenu, FiX } from 'react-icons/fi';
+import { FaShoppingCart } from 'react-icons/fa';
 import './Navbar.scss';
 
 const Navbar = () => {
   const location = useLocation();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   return (
-    <header className="main-header">
-      {/* Top Bar */}
-      <div className="top-bar">
+    <header className={`main-header ${isScrolled ? 'sticky' : ''}`}>
+      {/* Top Bar - Hidden when scrolled for cleaner sticky look, matching modern Eiser behavior */}
+      <div className={`top-bar ${isScrolled ? 'hidden' : ''}`}>
         <div className="container">
           <div className="top-bar-left">
             <span>PHONE: +01 256 25 235</span>
@@ -36,55 +56,59 @@ const Navbar = () => {
             </Link>
           </div>
 
+          {/* Hamburger Menu Icon */}
+          <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+            {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+
           {/* Navigation Links */}
-          <ul className="nav-links">
+          <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-active' : ''}`}>
             <li>
-              <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
+              <Link to="/" className={location.pathname === '/' ? 'active' : ''} onClick={() => setIsMobileMenuOpen(false)}>
                 HOME
               </Link>
             </li>
             <li>
-              <Link to="/shop" className={location.pathname === '/shop' ? 'active' : ''}>
+              <Link to="/shop" className={location.pathname === '/shop' ? 'active' : ''} onClick={() => setIsMobileMenuOpen(false)}>
                 SHOP
               </Link>
             </li>
             <li>
-              <Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>
+              <Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''} onClick={() => setIsMobileMenuOpen(false)}>
                 BLOG
               </Link>
             </li>
             <li>
-              <Link to="/pages" className={location.pathname === '/pages' ? 'active' : ''}>
+              <Link to="/pages" className={location.pathname === '/pages' ? 'active' : ''} onClick={() => setIsMobileMenuOpen(false)}>
                 PAGES
               </Link>
             </li>
             <li>
-              <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>
+              <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''} onClick={() => setIsMobileMenuOpen(false)}>
                 CONTACT
               </Link>
             </li>
-            {/* Add Page (Admin) Link - requirements mention this */}
             <li>
-              <Link to="/add" className={location.pathname === '/add' ? 'active' : ''}>
+              <Link to="/add" className={location.pathname === '/add' ? 'active' : ''} onClick={() => setIsMobileMenuOpen(false)}>
                 ADD
               </Link>
             </li>
           </ul>
 
-          Navbar Icons
+          {/* Navbar Icons */}
           <div className="nav-icons">
             <button className="icon-btn">
-              <Search size={20} />
+              <FiSearch size={20} />
             </button>
             <Link to="/basket" className="icon-btn cart-btn">
-              <ShoppingCart size={20} />
+              <FaShoppingCart size={20} />
               <span className="badge">0</span>
             </Link>
             <button className="icon-btn">
-              <User size={20} />
+              <FiUser size={20} />
             </button>
             <button className="icon-btn">
-              <Heart size={20} />
+              <FiHeart size={20} />
             </button>
           </div>
         </div>
