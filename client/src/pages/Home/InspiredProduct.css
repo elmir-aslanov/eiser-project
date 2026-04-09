@@ -1,0 +1,121 @@
+.inspired-section {
+    padding: 80px 0;
+    background-color: #fff;
+  }
+  
+  .section-title {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  .section-title h2 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  
+  .section-title p {
+    color: #777;
+    font-size: 14px;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+  }
+  
+  .product-card {
+    transition: all 0.3s ease;
+  }
+  
+  .product-image {
+    background-color: #f6f6f6;
+    position: relative;
+    overflow: hidden;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .product-image img {
+    max-width: 200px;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+  }
+  
+  .product-card:hover .product-image img {
+    transform: scale(1.1);
+  }
+  
+  .product-actions {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    width: 100%;
+    background-color: #b8e791;
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+    gap: 15px;
+    transition: 0.4s ease;
+  }
+  
+  .product-card:hover .product-actions {
+    bottom: 0;
+  }
+  
+  .icon-btn {
+    background: #fff;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: #71cd14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon-btn:hover {
+    background: #71cd14;
+    color: #fff;
+  }
+  
+  .product-info {
+    padding: 15px 0;
+  }
+  
+  .product-info h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  
+  .product-card:hover h3 {
+    color: #71cd14;
+  }
+  
+  .price-tag .current-price {
+    font-weight: 700;
+    font-size: 16px;
+    margin-right: 8px;
+  }
+  
+  .price-tag .old-price {
+    text-decoration: line-through;
+    color: #ccc;
+    font-size: 13px;
+  }
+  
+  @media (max-width: 992px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  
+  @media (max-width: 576px) {
+    .product-grid { grid-template-columns: 1fr; }
+  }
