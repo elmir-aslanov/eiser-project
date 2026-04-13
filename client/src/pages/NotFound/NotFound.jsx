@@ -1,13 +1,21 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NotFound = () => {
-  const navigate = useNavigate();
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>404 Not Found</h1>
-      <button onClick={() => navigate('/')}>Go Home</button>
-    </div>
+    <main className="inner-page">
+      <section className="inner-banner">
+        <div className="container">
+          <h1>404</h1>
+        </div>
+      </section>
+      <section className="inner-content">
+        <div className="container">
+          <h2>Page Not Found</h2>
+          <p>The page you are trying to open does not exist.</p>
+          <p><Link to="/" className="cta-btn">Back to Home</Link></p>
+        </div>
+      </section>
+    </main>
   );
 };
 
