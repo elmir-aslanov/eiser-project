@@ -5,7 +5,7 @@ const connectDB = require('./src/config/db');
 const productRoutes = require('./src/routes/productRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 
 // Connect to Database
 connectDB();
@@ -16,7 +16,7 @@ app.use(express.json());
 
 // Routes
 app.get('/', (req, res) => {
-    res.send('Eiser API is running...');
+    res.send('Eiser API is running...');      
 });
 
 // API Routes
