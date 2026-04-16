@@ -1,25 +1,25 @@
 import React from 'react';
-import { PiMoney, PiTruck, PiHeadset, PiShieldCheck } from 'react-icons/pi';
+import { FaMoneyBillWave, FaTruck, FaHeadset, FaShieldAlt } from 'react-icons/fa';
 
 const Features = () => {
   const featureList = [
     {
-      icon: <PiMoney size={45} />,
+      icon: <FaMoneyBillWave size={45} />,
       title: 'MONEY BACK GURANTEE',
       description: 'Shall open divide a one',
     },
     {
-      icon: <PiTruck size={45} />,
+      icon: <FaTruck size={45} />,
       title: 'FREE DELIVERY',
       description: 'Shall open divide a one',
     },
     {
-      icon: <PiHeadset size={45} />,
+      icon: <FaHeadset size={45} />,
       title: 'ALWAY SUPPORT',
       description: 'Shall open divide a one',
     },
     {
-      icon: <PiShieldCheck size={45} />,
+      icon: <FaShieldAlt size={45} />,
       title: 'SECURE PAYMENT',
       description: 'Shall open divide a one',
     },
